@@ -3,6 +3,7 @@ import { Grid, Image } from 'semantic-ui-react'
 import { Input } from 'semantic-ui-react'
 import { Button, Icon } from 'semantic-ui-react'
 import TopBarCompany from './TopbarCompany'
+import token from './abi'
 import '../CSS/manufacturer.css'
 
 class Manufacturer extends Component {
@@ -11,9 +12,16 @@ class Manufacturer extends Component {
 
     }
 
-    handleSubmit = e => {
+    handleSubmit = async e => {
         e.preventDefault();
         console.log('Entered');
+        token.methods.new_model(, document.getElementById('cpu_id').value, document.getElementById('motherboard').value,
+            document.getElementById('memory_id').value, document.getElementById('hdd_id').value, document.getElementById('ssd_id').value,
+            document.getElementById('graphics_id').value, document.getElementById('battery_id').value, document.getElementById('serviceid').value).call({ from:})
+        console.log(document.getElementById('sn').value);
+
+
+        token.methods.new_model('0x'.concat('',Buffer.from(document.getElementById('sn').value, ).toString('hex'))).call()
     }
     render() {
         return (
@@ -21,7 +29,7 @@ class Manufacturer extends Component {
                 <div>
                     <TopBarCompany />
                 </div>
-                
+
                 <div >
                     <Grid centered>
                         <Grid.Row>
@@ -30,25 +38,17 @@ class Manufacturer extends Component {
                             </Grid.Column>
                             <Grid.Column width={13}>
                                 <p>SERIAL NUMBER</p>
-                                <Input id='inputCSS' icon='barcode' placeholder='SERIAL NUMBER' className="icon" focus/>
+                                <Input ref='sn' id="sn" icon='barcode' placeholder='SERIAL NUMBER' className="icon" focus />
                             </Grid.Column>
                         </Grid.Row>
-                        <Grid.Row>
-                            <Grid.Column width={1}>
-                                <Image src='https://react.semantic-ui.com/images/wireframe/image.png' />
-                            </Grid.Column>
-                            <Grid.Column width={13}>
-                                <p>SERVICE_ID</p>
-                                <Input id='inputCSS' icon='barcode' placeholder='SERIAL NUMBER' />
-                            </Grid.Column>
-                        </Grid.Row>
+
                         <Grid.Row>
                             <Grid.Column width={1}>
                                 <Image src='https://react.semantic-ui.com/images/wireframe/image.png' />
                             </Grid.Column>
                             <Grid.Column width={13}>
                                 <p>MOTHERBOARD</p>
-                                <Input id='inputCSS' icon='barcode' placeholder='SERIAL NUMBER' />
+                                <Input id='motherboard' icon='barcode' placeholder='SERIAL NUMBER' />
                             </Grid.Column>
                         </Grid.Row>
 
@@ -58,7 +58,7 @@ class Manufacturer extends Component {
                             </Grid.Column>
                             <Grid.Column width={13}>
                                 <p>CPU_ID</p>
-                                <Input id='inputCSS' icon='barcode' placeholder='SERIAL NUMBER' />
+                                <Input id='cpu_id' icon='barcode' placeholder='SERIAL NUMBER' />
                             </Grid.Column>
                         </Grid.Row>
 
@@ -68,7 +68,7 @@ class Manufacturer extends Component {
                             </Grid.Column>
                             <Grid.Column width={13}>
                                 <p>MEMORY_ID</p>
-                                <Input id='inputCSS' icon='barcode' placeholder='SERIAL NUMBER' />
+                                <Input id='memory_id' icon='barcode' placeholder='SERIAL NUMBER' />
                             </Grid.Column>
                         </Grid.Row>
 
@@ -78,7 +78,7 @@ class Manufacturer extends Component {
                             </Grid.Column>
                             <Grid.Column width={13}>
                                 <p>HARD-DISK NUMBER</p>
-                                <Input id='inputCSS' icon='barcode' placeholder='SERIAL NUMBER' />
+                                <Input id='hdd_id' icon='barcode' placeholder='SERIAL NUMBER' />
                             </Grid.Column>
                         </Grid.Row>
 
@@ -88,7 +88,7 @@ class Manufacturer extends Component {
                             </Grid.Column>
                             <Grid.Column width={13}>
                                 <p>SSD_ID</p>
-                                <Input id='inputCSS' icon='barcode' placeholder='SERIAL NUMBER' />
+                                <Input id='ssd_id' icon='barcode' placeholder='SERIAL NUMBER' />
                             </Grid.Column>
                         </Grid.Row>
 
@@ -98,7 +98,7 @@ class Manufacturer extends Component {
                             </Grid.Column>
                             <Grid.Column width={13}>
                                 <p>GRAPHICS_ID</p>
-                                <Input id='inputCSS' icon='barcode' placeholder='SERIAL NUMBER' />
+                                <Input id='graphics_id' icon='barcode' placeholder='SERIAL NUMBER' />
                             </Grid.Column>
                         </Grid.Row>
 
@@ -108,7 +108,16 @@ class Manufacturer extends Component {
                             </Grid.Column>
                             <Grid.Column width={13}>
                                 <p>BATTERY_ID</p>
-                                <Input id='inputCSS' icon='barcode' placeholder='SERIAL NUMBER' />
+                                <Input id='battery_id' icon='barcode' placeholder='SERIAL NUMBER' />
+                            </Grid.Column>
+                        </Grid.Row>
+                        <Grid.Row>
+                            <Grid.Column width={1}>
+                                <Image src='https://react.semantic-ui.com/images/wireframe/image.png' />
+                            </Grid.Column>
+                            <Grid.Column width={13}>
+                                <p>SERVICE_ID</p>
+                                <Input id='serviceid' icon='barcode' placeholder='SERIAL NUMBER' />
                             </Grid.Column>
                         </Grid.Row>
                         {/* <Grid.Column width={6}>
@@ -122,10 +131,10 @@ class Manufacturer extends Component {
                     </Grid>
                 </div>
                 <div className="button">
-                    
+
                     <Button primary onClick={this.handleSubmit}>Submit</Button>
 
-                        </div>
+                </div>
             </div>
         );
     }
