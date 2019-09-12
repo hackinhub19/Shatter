@@ -15,13 +15,10 @@ class Manufacturer extends Component {
     handleSubmit = async e => {
         e.preventDefault();
         console.log('Entered');
-        token.methods.new_model(, document.getElementById('cpu_id').value, document.getElementById('motherboard').value,
-            document.getElementById('memory_id').value, document.getElementById('hdd_id').value, document.getElementById('ssd_id').value,
-            document.getElementById('graphics_id').value, document.getElementById('battery_id').value, document.getElementById('serviceid').value).call({ from:})
-        console.log(document.getElementById('sn').value);
 
 
-        token.methods.new_model('0x'.concat('',Buffer.from(document.getElementById('sn').value, ).toString('hex'))).call()
+
+        token.methods.new_model('0x'.concat('', Buffer.from(document.getElementById('sn').value, '0x'.concat('', Buffer.from(document.getElementById('cpu_id').value, '0x'.concat('', Buffer.from(document.getElementById('motherboard').value, '0x'.concat('', Buffer.from(document.getElementById('memory_id').value, '0x'.concat('', Buffer.from(document.getElementById('hdd_id').value, '0x'.concat('', Buffer.from(document.getElementById('ssd_id').value, '0x'.concat('', Buffer.from(document.getElementById('graphics_id').value, '0x'.concat('', Buffer.from(document.getElementById('battery_id').value, '0x'.concat('', Buffer.from(document.getElementById('serviceid').value)).toString('hex'))).call()
     }
     render() {
         return (
