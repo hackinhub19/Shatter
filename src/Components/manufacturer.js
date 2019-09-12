@@ -17,8 +17,17 @@ class Manufacturer extends Component {
         console.log('Entered');
 
 
-
-        token.methods.new_model('0x'.concat('', Buffer.from(document.getElementById('sn').value, '0x'.concat('', Buffer.from(document.getElementById('cpu_id').value, '0x'.concat('', Buffer.from(document.getElementById('motherboard').value, '0x'.concat('', Buffer.from(document.getElementById('memory_id').value, '0x'.concat('', Buffer.from(document.getElementById('hdd_id').value, '0x'.concat('', Buffer.from(document.getElementById('ssd_id').value, '0x'.concat('', Buffer.from(document.getElementById('graphics_id').value, '0x'.concat('', Buffer.from(document.getElementById('battery_id').value, '0x'.concat('', Buffer.from(document.getElementById('serviceid').value)).toString('hex'))).call()
+            token.methods.new_model('0x'.concat('', Buffer.from(document.getElementById('sn').value).toString('hex')),
+            '0x'.concat('', Buffer.from(document.getElementById('cpu_id').value).toString('hex')),
+            '0x'.concat('', Buffer.from(document.getElementById('motherboard').value).toString('hex')),
+            '0x'.concat('', Buffer.from(document.getElementById('memory_id').value).toString('hex')),
+            '0x'.concat('', Buffer.from(document.getElementById('hdd_id').value).toString('hex')),
+            '0x'.concat('', Buffer.from(document.getElementById('ssd_id').value).toString('hex')),
+            '0x'.concat('', Buffer.from(document.getElementById('graphics_id').value).toString('hex')),
+            '0x'.concat('', Buffer.from(document.getElementById('battery_id').value).toString('hex')),
+            '0x'.concat('', Buffer.from(document.getElementById('serviceid').value).toString('hex'))).send({ from: this.props.companyaddress })
+            .on('transactionHash', function(hash){console.log(hash)})
+            .then(window.location.reload)
     }
     render() {
         return (
@@ -117,14 +126,6 @@ class Manufacturer extends Component {
                                 <Input id='serviceid' icon='barcode' placeholder='SERIAL NUMBER' />
                             </Grid.Column>
                         </Grid.Row>
-                        {/* <Grid.Column width={6}>
-                            <Button animated color='olive' className="name">
-                                <Button.Content visible={this.handleSubmit}>SUBMIT</Button.Content>
-                                <Button.Content hidden>
-                                    <Icon name='arrow right' />
-                                </Button.Content>
-                            </Button>
-                        </Grid.Column> */}
                     </Grid>
                 </div>
                 <div className="button">
