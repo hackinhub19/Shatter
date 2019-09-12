@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Grid, Image } from 'semantic-ui-react'
 import { Input } from 'semantic-ui-react'
 import { Button, Icon } from 'semantic-ui-react'
-import TopBarCompany from './TopbarCompany'
+//import TopBarCompany from './TopbarCompany'
 import token from './abi'
 import '../CSS/manufacturer.css'
 
@@ -32,9 +32,9 @@ class Manufacturer extends Component {
     render() {
         return (
             <div className="full">
-                <div>
+                {/* <div>
                     <TopBarCompany />
-                </div>
+                </div> */}
 
                 <div >
                     <Grid centered>
