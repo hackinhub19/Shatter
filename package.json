@@ -49,12 +49,12 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/abhikedia/supplychain.git"
+    "url": "git+https://github.com/hackinhub19/Shatter.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/abhikedia/supplychain/issues"
+    "url": "https://github.com/hackinhub/Shatter/issues"
   },
-  "homepage": "https://github.com/abhikedia/supplychain#readme"
+  "homepage": "https://github.com/hackinhub/Shatter#readme"
 }
